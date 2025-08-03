@@ -50,14 +50,22 @@ jobs:
             docker stop blog || echo "Not running"
             docker rm -f lblog || echo "Not present"
             docker run -d --name blog -p 80:80 mydeendevops369/blog:latest
-
   gke_deploy:
     name: Deploy to GKE Cluster
     runs-on: self-hosted
+    needs: docker
     steps:
-    - uses: tale/kubectl-action@v1
-      with:
-        base64-kube-config: ${{ secrets.KUBE_CONFIG }}
-    - run: | 
-          kubectl apply -f ./k8s/ingress/ -n webapps
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Set up kubectl with Kubeconfig
+        uses: tale/kubectl-action@v1
+        with:
+          base64-kube-config: ${{ secrets.KUBE_CONFIG }}
+
+      - name: Deploy Kubernetes Resources
+        run: | 
+          kubectl apply -f ./k8s/ingress -n webapps
           kubectl get svc -n webapps
+
+    
