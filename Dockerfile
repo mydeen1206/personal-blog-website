@@ -1,5 +1,5 @@
 # Use the official NGINX image as base
-FROM nginx:stable-perl
+FROM nginx:alpine
 
 # Remove the default nginx index page
 RUN rm -rf /usr/share/nginx/html/*
