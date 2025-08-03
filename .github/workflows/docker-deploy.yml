@@ -43,7 +43,7 @@ jobs:
           key: ${{ secrets.GCP_VM_SSH_KEY }}
           port: 22
           script: |
-            docker pull mydeendevops369/personalblog:latest
+            docker pull mydeendevops369/personalblog
             docker stop personalblog || true
             docker rm personalblog || true
-            docker run -d --name perosnalblog -p 90:80 mydeendevops369/personalblog:latest
+            docker run -d --name perosnalblog -p 90:80 mydeendevops369/personalblog
