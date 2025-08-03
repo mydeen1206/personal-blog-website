@@ -45,5 +45,5 @@ jobs:
           script: |
             docker pull mydeendevops369/blog:latest
             docker stop blog || echo "Not running"
-            docker rm lblog || echo "Not present"
-            docker run -d --name personalblog -p 80:80 mydeendevops369/blog:latest
+            docker rm -f lblog || echo "Not present"
+            docker run -d --name blog -p 80:80 mydeendevops369/blog:latest
