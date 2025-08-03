@@ -12,7 +12,7 @@ COPY index.html /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
 
 # Expose port 80
-EXPOSE 80
+EXPOSE 90
 
 # Start NGINX
 CMD ["nginx", "-g", "daemon off;"]
