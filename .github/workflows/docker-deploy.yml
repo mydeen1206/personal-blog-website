@@ -18,7 +18,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t mydeendevops369/perosnalblog:latest .
+          docker build -t mydeendevops369/personalblog:latest .
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
@@ -43,7 +43,7 @@ jobs:
           key: ${{ secrets.GCP_VM_SSH_KEY }}
           port: 22
           script: |
-            docker pull mydeendevops369/personalblog
-            docker stop personalblog || true
-            docker rm personalblog || true
-            docker run -d --name perosnalblog -p 90:80 mydeendevops369/personalblog
+            docker pull mydeendevops369/personalblog:latest
+            docker stop personalblog || echo "Not running"
+            docker rm personalblog || echo "Not present"
+            docker run -d --name personalblog -p 90:80 mydeendevops369/personalblog:latest
