@@ -28,7 +28,7 @@ jobs:
 
       - name: Push Docker Image
         run: |
-          docker push mydeendevops369/personalblog:latest
+          docker push mydeendevops369/blog:latest
 
   deploy:
     name: Deploy to GCP VM
@@ -43,7 +43,7 @@ jobs:
           key: ${{ secrets.GCP_VM_SSH_KEY }}
           port: 22
           script: |
-            docker pull mydeendevops369/personalblog:latest
-            docker stop personalblog || echo "Not running"
-            docker rm personalblog || echo "Not present"
-            docker run -d --name personalblog -p 80:80 mydeendevops369/personalblog:latest
+            docker pull mydeendevops369/blog:latest
+            docker stop blog || echo "Not running"
+            docker rm lblog || echo "Not present"
+            docker run -d --name personalblog -p 80:80 mydeendevops369/blog:latest
