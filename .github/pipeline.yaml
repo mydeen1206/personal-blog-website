@@ -46,6 +46,6 @@ jobs:
           port: 22
           script: |
             docker pull mydeendevops369/personalblog:latest
-            docker stop perosnalblog || true
-            docker rm perosnalblog || true
-            docker run -d --name perosnalblog -p 90:80 mydeendevops369/personalblog:latest            
+            docker stop personalblog || true
+            docker rm personalblog || true
+            docker run -d --name personalblog -p 90:80 mydeendevops369/personalblog:latest            
