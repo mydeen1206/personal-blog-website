@@ -48,4 +48,4 @@ jobs:
             docker pull mydeendevops369/personalblog:latest
             docker stop personalblog || true
             docker rm personalblog || true
-            docker run -d --name personalblog -p 90:80 mydeendevops369/personalblog:latest            
+            docker run -d --name personalblog -p 80:80 mydeendevops369/personalblog:latest            
