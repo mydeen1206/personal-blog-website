@@ -1,4 +1,4 @@
-# Use the official NGINX image as base
+# Use the official NGINX image as base##
 FROM nginx:alpine
 
 # Remove the default nginx index page
