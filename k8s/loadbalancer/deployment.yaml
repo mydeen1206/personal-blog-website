@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment  
+metadata: # Dictionary
+  name: blog-deployment
+spec: # Dictionary
+  replicas: 2
+  selector: 
+    matchLabels: 
+      app: blog
+  template:
+    metadata: # Dictionary
+      name: blog-pod
+      labels:
+        app: blog # Key Value Pairs   
+    spec:
+      containers: # List
+        - name: blog-container
+          image: mydeendevops369/blog:latest
+          ports: 
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
