@@ -28,7 +28,7 @@ jobs:
 
       - name: Push Docker Image
         run: |
-          docker push mydeendevops369/perosnalblog:latest
+          docker push mydeendevops369/personalblog:latest
 
   deploy:
     name: Deploy to GCP VM
