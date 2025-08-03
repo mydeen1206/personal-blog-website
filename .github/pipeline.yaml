@@ -19,7 +19,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t mydeendevops369/perosnalblog:latest .
+          docker build -t mydeendevops369/personalblog:latest .
 
 
       - name: Login to Docker Hub
@@ -30,7 +30,7 @@ jobs:
 
       - name: Push Docker Image
         run: |
-          docker push mydeendevops369/perosnalblog:latest
+          docker push mydeendevops369/personalblog:latest
 
   deploy:
     name: Deploy to GCP VM
@@ -45,8 +45,7 @@ jobs:
           key: ${{ secrets.GCP_VM_SSH_KEY }}
           port: 22
           script: |
-            docker pull mydeendevops369/perosnalblog:latest
+            docker pull mydeendevops369/personalblog:latest
             docker stop perosnalblog || true
             docker rm perosnalblog || true
-            docker run -d --name perosnalblog -p 90:80 mydeendevops369/perosnalblog
-            echo "deployment completed successfully"
+            docker run -d --name perosnalblog -p 90:80 mydeendevops369/personalblog:latest            
