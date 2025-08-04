@@ -90,3 +90,7 @@ jobs:
           kubectl apply -f ./k8s/ingress -n webapps
           kubectl get svc -n webapps
           kubectl get pods -n webapps
+      
+          - name: Loadbalancer Deployment
+            run: |
+            kubectl apply -f ./k8s/loadbalancer.yaml
