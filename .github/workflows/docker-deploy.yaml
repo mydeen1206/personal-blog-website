@@ -81,6 +81,4 @@ jobs:
 
       - name: Deploy to GKE
         run: |
-          #kubectl apply -f ./k8s/ingress -n webapps
-          #kubectl get svc -n webapps
           kubectl get pods
