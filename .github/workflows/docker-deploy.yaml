@@ -88,7 +88,7 @@ jobs:
       - name: Deploy to GKE
         run: |
           kubectl apply -f ./k8s/ingress -n webapps
-          kubectl apply -f ./k8s/loadbalancer.yaml
+          kubectl apply -f ./k8s/loadbalancer
           kubectl get svc -n webapps
           kubectl get pods -n webapps
 
