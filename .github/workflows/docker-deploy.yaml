@@ -75,6 +75,7 @@ jobs:
 
       - name: Configure kubectl
         run: |
+          gcloud components install gke-gcloud-auth-plugin
           gcloud config set project terraform-467505
           gcloud container clusters get-credentials devops-dev-gke-cluster \
             --zone us-central1 \
