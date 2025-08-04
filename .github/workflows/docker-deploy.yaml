@@ -70,10 +70,10 @@ jobs:
 
       - name: Configure kubectl
         run: |
-          gcloud config set project $PROJECT_ID
-          gcloud container clusters get-credentials "$CLUSTER_NAME" \
-            --zone "$CLUSTER_ZONE" \
-            --project "$PROJECT_ID"
+          gcloud config set project terraform-467505
+          gcloud container clusters get-credentials devops-dev-gke-cluster \
+            --zone us-central1 \
+            --project terraform-467505
       - name: Debug Credentials
         run: |
           echo "GOOGLE_APPLICATION_CREDENTIALS: $GOOGLE_APPLICATION_CREDENTIALS"
