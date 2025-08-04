@@ -74,23 +74,6 @@ jobs:
 
       - name: Deploy to GKE
         run: |
-          kubectl apply -f ./k8s/ingress -n webapps
-          kubectl get svc -n webapps
-
-  gke_deploy:
-    name: Deploy to GKE Cluster
-    runs-on: self-hosted
-    needs: docker
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
-
-      - name: Set up kubectl with Kubeconfig
-        uses: tale/kubectl-action@v1
-        with:
-          base64-kube-config: ${{ secrets.KUBE_CONFIG }}
-
-      - name: Deploy Kubernetes Resources
-        run: |
-          kubectl apply -f ./k8s/ingress -n webapps
-          kubectl get svc -n webapps
+          #kubectl apply -f ./k8s/ingress -n webapps
+          #kubectl get svc -n webapps
+          kubectl get pods
